@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^logout$', ev_views.logout, name='logout'),
     url(r'^logout_process', ev_views.logout_process, name='logout_process'),
     url(r'^user_registration_process', ev_views.user_registration_process, name='user_registration_process'),
+    url(r'^status$', ev_views.status, name='status'),
 ]

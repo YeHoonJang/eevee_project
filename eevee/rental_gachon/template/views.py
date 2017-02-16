@@ -65,13 +65,21 @@ def user_registration_process(request):
             status = "이미 존재하는 아이디입니다"
             return render(request, 'login_form.html', {"status": status})
         except User.DoesNotExist:
-            firstname = request.POST["firstname"]
-            lastname = request.POST["lastname"]
-            password = request.POST["passwd"]
+            user_name = request.POST["user_name"]
+            nickname = request.POST["nickname"]
+            password = request.POST["password"]
+            student_number = request.POST["student_number"]
             new_user = User.objects.create_user(email, email, password)
-            new_user.last_name = lastname
-            new_user.first_name = firstname
+            new_user.nickname = nickname
+            new_user.user_name = user_name
+            new_user.student_number = student_number
             new_user.save()
             request.session['login_id'] = email
             return render(request, 'index.html', {"login_id": email})
+
+
+def status(request):
+    if request.method == 'GET':
+        print("Hello world!")
+
 
