@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
 
+
+
 def index(request):
     try:
         email = request.session['login_id']
@@ -82,6 +84,31 @@ def status(request):
 def reservation(request):
     return render(request, "reservation.html")
 
-def lend(request):
-    return render(request, "lend.html")
 
+def lend(request):
+    global lend_form_dict
+    try:
+        email = request.session['login_id']
+    except KeyError as e:
+        return render(request, 'login_form.html')
+
+    if request.method == "POST":
+        lend_form_dict = {}
+        print("Hello, POST")
+
+        locate = request.POST["locate"]
+        number = request.POST["number"]
+        model = request.POST["model"]
+        memo = request.POST["memo"]
+
+        lend_form_dict["locate"] = locate
+        lend_form_dict["number"] = number
+        lend_form_dict["model"] = model
+        lend_form_dict["memo"] = memo
+
+        print(lend_form_dict)
+        return render(request, "lend.html", lend_form_dict)
+
+    elif request.method == "GET":
+        print("Hello, GET")
+        return render(request, "lend.html")

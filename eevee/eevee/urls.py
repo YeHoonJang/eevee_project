@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^status$', ev_views.status, name='status'),
     url(r'^reservation$', ev_views.reservation, name='reservation'),
     url(r'^lend$', ev_views.lend, name='lend'),
+    # url(r'^lend_form$', ev_views.lend_form, name='lend_form'),
     url(r'^accounts/', include('allauth.urls')),
 
 ]
