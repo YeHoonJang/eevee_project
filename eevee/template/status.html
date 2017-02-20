@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Gachon Student Rental Service
+{% endblock %}
+
+{% block content %}
+
+
+    <head>
+        <style type="text/css">
+
+            .status{
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+
+            }
+
+            .title{
+                padding-left:50px;
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+
+    <h1 class="title">현황</h1>
+    <div class="status col-md-9">
+        <table class="table table-s">
+            <th>빌려준 현황</th>
+            <th></th>
+            <tr>
+                <td>사진</td>
+                <td>
+                    <table class="table 1">
+                        <tr>
+                            <td>빌려간 사람</td>
+                        <tr>
+                            <td>반납일</td>
+                        </tr>
+                        <tr>
+                            <td>반납 장소</td>
+                        </tr>
+                        <tr>
+                            <td>개수</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <th>예약 현황</th>
+            <th></th>
+            <tr>
+                <td>사진</td>
+                <td>
+                    <table class="table 1">
+                        <tr>
+                            <td>빌린 사람</td>
+                        <tr>
+                            <td>반납일</td>
+                        </tr>
+                        <tr>
+                            <td>반납 장소</td>
+                        </tr>
+                        <tr>
+                            <td>개수</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    </body>
+
+{% endblock %}

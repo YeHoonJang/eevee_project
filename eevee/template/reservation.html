@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Gachon Student Rental Service
+{% endblock %}
+
+{% block content %}
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+        <style type="text/css">
+
+            .dropdown{
+                border:1px solid blue;
+            }
+            .calendar {
+                border: 1px solid black;
+            }
+            .select{
+                border:1px solid red;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <div class="dropdown col-md-3">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">항목 선택
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">공학용 계산기</a></li>
+            <li><a href="#">고데기</a></li>
+            <li><a href="#">기타</a></li>
+        </ul>
+    </div>
+
+
+    <div class="calendar col-md-3"C>
+
+        <div>calendar</div>
+
+    </div>
+
+    <div class="select col-md-6">
+        <table class="table">
+            <tr>
+                <td>사진</td>
+                <td>
+                    <table class="table">
+                        <tr>
+                            <td>모델명</td>
+                            <td>소유자</td>
+                            <td>장소</td>
+                        <tr>
+                            <td>예약경로</td>
+                            <td>카톡ID</td>
+                            <td>메모</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+                <td><button type="button" class="btn btn-default btn-circle"><a href="#">예약</a></td>
+            </tr>
+             <tr>
+                <td>사진</td>
+                <td>
+                    <table class="table 1">
+                        <tr>
+                            <td>모델명</td>
+                            <td>소유자</td>
+                            <td>장소</td>
+                        <tr>
+                            <td>예약경로</td>
+                            <td>카톡ID</td>
+                            <td>메모</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+                <td><button type="button" class="btn btn-default btn-circle"><a href="#">예약</a></td>
+            </tr>
+             <tr>
+                <td>사진</td>
+                <td>
+                    <table class="table 1">
+                        <tr>
+                            <td>모델명</td>
+                            <td>소유자</td>
+                            <td>장소</td>
+                        <tr>
+                            <td>예약경로</td>
+                            <td>카톡ID</td>
+                            <td>메모</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+                <td><button type="button" class="btn btn-default btn-circle"><a href="#">예약</a></td>
+            </tr>
+        </table>
+    </div>
+    </body>
+
+{% endblock %}
+

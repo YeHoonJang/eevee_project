@@ -1,6 +1,5 @@
-
+from django.template.context_processors import csrf
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -16,6 +15,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend"
+)
+
+# auth and allauth settings
 
 # Application definition
 
@@ -26,8 +33,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,12 +65,63 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'allauth.account.context_processors.account',
+                # 'allauth.socialaccount.context_processors.socialaccount',
+                # 'django.core.context_processors.request',
             ],
         },
     },
 ]
 
+
 WSGI_APPLICATION = 'eevee.wsgi.application'
+
+# allauth ============ start
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 30
+
+ACCOUNT_USERNAME_REQUIRED = False
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_PASSWORD_MIN_LENGTH = 6
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
+SOCIALACCOUNT_EMAIL_REQUIRED=True
+
+
+SOCIALACCOUNT_PROVIDERS = {
+
+  'facebook': {
+
+     'SCOPE': ['email'],
+
+     'AUTH_PARAMS': { 'auth_type': 'reauthenticate'},
+
+     'METHOD': 'oauth2',
+
+     'VERIFIED_EMAIL': False,
+
+     'EXCHANGE_TOKEN': True,
+
+     },
+
+}
+
+SOCIALACCOUNT_ADAPTER = '~~~~~~.views.AccountAdapter'
+
+ACCOUNT_ADAPTER       = '~~~~~~~~.views.MyAdapter'
+
+# allauth ============ end
+
 
 
 # Database

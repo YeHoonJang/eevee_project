@@ -2,7 +2,6 @@ from django.contrib.auth import authenticate
 from django.shortcuts import render
 from django.http import HttpResponse
 
-
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
@@ -13,7 +12,6 @@ def index(request):
     except KeyError as e:
         return render(request, 'index.html')
     return render(request, 'index.html', {"login_id": email})
-
 
 
 def login(request):
@@ -49,11 +47,10 @@ def check_login(request):
                 return render(request, 'index.html', {"login_id": email})
             else:
                 status = "Password가 틀렸습니다"
-                return render(request, 'login_form.html', {"status": status })
+                return render(request, 'login_form.html', {"status": status})
         except User.DoesNotExist:
             status = "존재하지 않는 아이디입니다."
             return render(request, 'login_form.html', {"status": status})
-
 
 
 def user_registration_process(request):
@@ -79,7 +76,12 @@ def user_registration_process(request):
 
 
 def status(request):
-    if request.method == 'GET':
-        print("Hello world!")
+    return render(request, "status.html")
 
+
+def reservation(request):
+    return render(request, "reservation.html")
+
+def lend(request):
+    return render(request, "lend.html")
 

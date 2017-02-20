@@ -30,8 +30,8 @@
     <body id="bg" style="background-image: url('{% static "img/d3TjUpj-gradient-wallpaper.jpg"%}')"/>
 
     <div class="container" align="center">
-        <button type="button" class="btn btn-default btn-circle"><a href="#">예약하기</a></button>
-        <button type="button" class="btn btn-default btn-circle"><a href="#">빌려주기</a></button>
+        <button type="button" class="btn btn-default btn-circle"><a href="{% url 'reservation' %}">예약하기</a></button>
+        <button type="button" class="btn btn-default btn-circle"><a href="{% url 'lend' %}">빌려주기</a></button>
         <button type="button" class="btn btn-default btn-circle"><a href="#">커뮤니티</a></button>
     </div>
 

@@ -1,6 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
-
 from rental_gachon.template import views as ev_views
 
 urlpatterns = [
@@ -12,4 +11,8 @@ urlpatterns = [
     url(r'^logout_process', ev_views.logout_process, name='logout_process'),
     url(r'^user_registration_process', ev_views.user_registration_process, name='user_registration_process'),
     url(r'^status$', ev_views.status, name='status'),
+    url(r'^reservation$', ev_views.reservation, name='reservation'),
+    url(r'^lend$', ev_views.lend, name='lend'),
+    url(r'^accounts/', include('allauth.urls')),
+
 ]
